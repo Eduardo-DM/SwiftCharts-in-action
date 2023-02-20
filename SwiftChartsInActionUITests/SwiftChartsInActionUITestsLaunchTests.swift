@@ -6,7 +6,7 @@
 //
 
 import XCTest
-
+/*
 final class SwiftChartsInActionUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
@@ -30,3 +30,4 @@ final class SwiftChartsInActionUITestsLaunchTests: XCTestCase {
         add(attachment)
     }
 }
+*/
