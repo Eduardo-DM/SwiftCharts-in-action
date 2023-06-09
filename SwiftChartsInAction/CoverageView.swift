@@ -29,6 +29,8 @@ struct CoverageView: View {
                 PlaceOrderView(coverageVM: coverageVM)
                     .opacity(coverageVM.showPlaceReplenishementView ? 1.0 : 0.0)
             }
+            .navigationTitle("Stock")
+            .navigationBarTitleDisplayMode(.inline)
             .listRowSeparator(.hidden)
         }
         .padding(.top)

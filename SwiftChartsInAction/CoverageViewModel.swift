@@ -7,10 +7,22 @@
 
 import Foundation
 
-final class CoverageVM: ObservableObject{
+final class CoverageVM: ObservableObject, Hashable{
+    
+    static func == (lhs: CoverageVM, rhs: CoverageVM) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    let id: UUID = UUID()
+    
     let initialStock: Int
 
-    enum KeyboardControl{
+    enum KeyboardControl: Int{
         case show
     }
     

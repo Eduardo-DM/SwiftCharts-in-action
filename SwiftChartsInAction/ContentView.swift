@@ -8,21 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var path = NavigationPath()
+    
     var body: some View {
-        TabView{
-            CoverageView(coverageVM: CoverageVM(initialStock: MovementInStockTimeline.demoInitialStock,
-                                                sequencesByTypeOfMovement: SequenceByTypeOfMovement.splitSequencesPerTypeOfMovement(
-                                                    unifiedTimeline: MovementInStockTimeline.stockProyection(
-                                                        input: Movement.demoInitialReplesnishments,
-                                                        output: Movement.demoForecastFourWeeks,
-                                                        initialStock: MovementInStockTimeline.demoInitialStock))))
-            .tabItem {
-                Label("Interactive stock evolution", systemImage: "box.truck")
-            }
-            AnnualReviewView(company: Company.apple, averageYears: 4)
-                .tabItem {
+        NavigationStack(path: $path){
+            List{
+                NavigationLink {
+                    CoverageView(coverageVM: CoverageVM(initialStock: MovementInStockTimeline.demoInitialStock,
+                                                        sequencesByTypeOfMovement: SequenceByTypeOfMovement.splitSequencesPerTypeOfMovement(
+                                                            unifiedTimeline: MovementInStockTimeline.stockProyection(
+                                                                input: Movement.demoInitialReplesnishments,
+                                                                output: Movement.demoForecastFourWeeks,
+                                                                initialStock: MovementInStockTimeline.demoInitialStock))))
+                } label: {
+                    Label("Interactive stock evolution", systemImage: "box.truck")
+                }
+                NavigationLink {
+                    AnnualReviewView(company: Company.apple, averageYears: 4)
+                } label: {
                     Label("Sales", systemImage: "dollarsign")
                 }
+                .navigationTitle("Swift Charts")
+            }
         }
     }
 }

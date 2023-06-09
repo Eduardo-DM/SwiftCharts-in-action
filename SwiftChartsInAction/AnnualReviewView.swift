@@ -29,6 +29,8 @@ struct AnnualReviewView: View {
                 )
             }
             .chartLegend(.visible)
+            .navigationTitle("Sales")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .padding(.horizontal)
     }
