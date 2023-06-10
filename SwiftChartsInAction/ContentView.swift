@@ -16,6 +16,7 @@ struct ContentView: View {
             List{
                 coverageLink
                 annualSalesLink
+                evolutionTopFiveEmittersLink
             }
         }
     }
@@ -39,6 +40,13 @@ struct ContentView: View {
             Label("Sales", systemImage: "dollarsign")
         }
         .navigationTitle("Swift Charts")
+    }
+    var evolutionTopFiveEmittersLink: some View{
+        NavigationLink {
+            EvolutionTopFiveEmittersView()
+        } label: {
+            Label("Evolution top five emitters", systemImage: "chart.line.uptrend.xyaxis")
+        }
     }
 }
 
