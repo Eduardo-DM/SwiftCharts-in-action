@@ -14,24 +14,31 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path){
             List{
-                NavigationLink {
-                    CoverageView(coverageVM: CoverageVM(initialStock: MovementInStockTimeline.demoInitialStock,
-                                                        sequencesByTypeOfMovement: SequenceByTypeOfMovement.splitSequencesPerTypeOfMovement(
-                                                            unifiedTimeline: MovementInStockTimeline.stockProyection(
-                                                                input: Movement.demoInitialReplesnishments,
-                                                                output: Movement.demoForecastFourWeeks,
-                                                                initialStock: MovementInStockTimeline.demoInitialStock))))
-                } label: {
-                    Label("Interactive stock evolution", systemImage: "box.truck")
-                }
-                NavigationLink {
-                    AnnualReviewView(company: Company.apple, averageYears: 4)
-                } label: {
-                    Label("Sales", systemImage: "dollarsign")
-                }
-                .navigationTitle("Swift Charts")
+                coverageLink
+                annualSalesLink
             }
         }
+    }
+    
+    var coverageLink: some View{
+        NavigationLink {
+            CoverageView(coverageVM: CoverageVM(initialStock: MovementInStockTimeline.demoInitialStock,
+                                                sequencesByTypeOfMovement: SequenceByTypeOfMovement.splitSequencesPerTypeOfMovement(
+                                                    unifiedTimeline: MovementInStockTimeline.stockProyection(
+                                                        input: Movement.demoInitialReplesnishments,
+                                                        output: Movement.demoForecastFourWeeks,
+                                                        initialStock: MovementInStockTimeline.demoInitialStock))))
+        } label: {
+            Label("Interactive stock evolution", systemImage: "box.truck")
+        }
+    }
+    var annualSalesLink: some View {
+        NavigationLink {
+            AnnualReviewView(company: Company.apple, averageYears: 4)
+        } label: {
+            Label("Sales", systemImage: "dollarsign")
+        }
+        .navigationTitle("Swift Charts")
     }
 }
 
