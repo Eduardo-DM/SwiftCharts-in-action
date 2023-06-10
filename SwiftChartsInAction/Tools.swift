@@ -23,8 +23,8 @@ func loadCSVFile(from fileUrl: URL) -> [Country] {
                 
                 if fields.count == headers.count {
                     let country = Country(
-                        name: fields[0],
-                        isoCode: fields[1],
+                        name: fields[0].replacingOccurrences(of: "\"", with: ""),
+                        isoCode: fields[1].replacingOccurrences(of: "\"", with: ""),
                         year: Int(fields[2]),
                          total: Double(fields[3]),
                          coal: Double(fields[4]),
