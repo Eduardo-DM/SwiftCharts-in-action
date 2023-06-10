@@ -12,7 +12,11 @@ final class DataStore{
     static let shared = DataStore()
     
     @MainActor
-    var data: [Country] = []
+    var data: [Country] = [] {
+        didSet{
+            
+        }
+    }
     
     private init(){
         Task{

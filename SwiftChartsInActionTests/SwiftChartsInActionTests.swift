@@ -53,6 +53,23 @@ final class SwiftChartsDemoTests: XCTestCase {
         XCTAssertEqual(sample2.2, data.first(where: {$0.name == sample2.0 && $0.year == sample2.1})?.total)
     }
 
+    @MainActor func testTopFiveEmitters(){
+        
+        print(DataStore.shared.data.count)
+        
+        let sortedCountries = DataStore.shared.data
+            .filter({$0.year == 2021})
+            .sorted(by: {($0.total ?? 0.0) > ($1.total ?? 0.0)})
+            .dropFirst(1)
+            .map({$0.name})
+       
+        dump(sortedCountries)
+        let countries = sortedCountries[0...4]
+        
+        print(countries)
+ 
+    }
+    
    /* func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
