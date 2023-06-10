@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var path = NavigationPath()
-    let store = DataStore.shared
+   // let store = DataStore.shared
     
     var body: some View {
         NavigationStack(path: $path){
@@ -45,6 +45,7 @@ struct ContentView: View {
     var evolutionTopFiveEmittersLink: some View{
         NavigationLink {
             EvolutionTopFiveEmittersView()
+                
         } label: {
             Label("Evolution top five emitters", systemImage: "chart.line.uptrend.xyaxis")
         }

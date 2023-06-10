@@ -9,15 +9,22 @@ import SwiftUI
 
 struct EvolutionTopFiveEmittersView: View {
     
-    
+    @EnvironmentObject var store: DataStore
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            List{
+                ForEach(store.evolutionTopFiveEmitters) { country in
+                    Text("\(country.name)")
+                }
+                //  Text("\($0.name)")
+            
+        }
     }
 }
-
+/*
 struct EvolutionTopFiveEmittersView_Previews: PreviewProvider {
     static var previews: some View {
         EvolutionTopFiveEmittersView()
     }
 }
+*/

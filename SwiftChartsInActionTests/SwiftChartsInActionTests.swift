@@ -53,10 +53,10 @@ final class SwiftChartsDemoTests: XCTestCase {
         XCTAssertEqual(sample2.2, data.first(where: {$0.name == sample2.0 && $0.year == sample2.1})?.total)
         XCTAssertEqual(sample2.0, data.first(where: {$0.name == sample2.0 && $0.year == sample2.1})?.name)
     }
-
+/*
     @MainActor func testTopFiveEmitters(){
         
-        dump(DataStore.shared.data.count)
+      //  dump(DataStore.shared.data.count)
         
         let sortedCountries = Array(DataStore.shared.data
             .filter({$0.year == 2021})
@@ -75,7 +75,7 @@ final class SwiftChartsDemoTests: XCTestCase {
         print(countries)
         
  
-    }
+    }*/
     
    /* func testPerformanceExample() throws {
         // This is an example of a performance test case.

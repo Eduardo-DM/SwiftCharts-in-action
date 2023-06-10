@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct Country {
+struct Country: Identifiable {
+    var id: String{get{"\(name) - \(String(year))"}}
+    
     let name: String
     let isoCode: String
     let year: Int
