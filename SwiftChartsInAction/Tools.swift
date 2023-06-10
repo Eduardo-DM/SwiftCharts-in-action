@@ -25,7 +25,7 @@ func loadCSVFile(from fileUrl: URL) -> [Country] {
                     let country = Country(
                         name: fields[0].replacingOccurrences(of: "\"", with: ""),
                         isoCode: fields[1].replacingOccurrences(of: "\"", with: ""),
-                        year: Int(fields[2]),
+                        year: Int(fields[2]) ?? -1,
                          total: Double(fields[3]),
                          coal: Double(fields[4]),
                          oil: Double(fields[5]),

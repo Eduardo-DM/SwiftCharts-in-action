@@ -10,7 +10,7 @@ import Foundation
 struct Country {
     let name: String
     let isoCode: String
-    let year: Int?
+    let year: Int
     let total: Double?
     let coal: Double?
     let oil: Double?
