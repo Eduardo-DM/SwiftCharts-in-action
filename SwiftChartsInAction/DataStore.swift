@@ -16,6 +16,13 @@ final class DataStore: ObservableObject{
     @Published var data: [Country] = []
     
     init(){
+        Task(priority: .high){
+            await initSettings()
+        }
+    }
+    
+    @MainActor
+    private func initSettings() async{
         loadCountries()
         setEvolutionTopFiveEmitters()
     }
