@@ -9,13 +9,15 @@ import XCTest
 @testable import SwiftChartsInAction
 
 final class SwiftChartsDemoTests: XCTestCase {
-
+    var locationTest:LocationsTest!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        locationTest = LocationsTest()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        try eraseTestFiles(in: locationTest)
+        locationTest = nil
     }
 
     func testStockProyection()  {
@@ -36,6 +38,19 @@ final class SwiftChartsDemoTests: XCTestCase {
         XCTAssertEqual("forecast", sequences[0].type)
         XCTAssertEqual(3, sequences[1].sequence.count)
         XCTAssertEqual("replenishment", sequences[1].type)
+    }
+    
+    func testLoadCSVFile(){
+        let nRecords = 3
+        let afgCoal: Double? = nil
+        let sample1 = ("Afghanistan",1750, afgCoal)
+        let sample2 = ("Global", 2012, 35006.267581)
+        
+        let data = loadCSVFile(from: locationTest.bundle)
+        
+        XCTAssertEqual(nRecords, data.count)
+        XCTAssertEqual(sample1.2 , data.first(where: {$0.name == sample1.0 && $0.year == sample1.1})?.coal)
+        XCTAssertEqual(sample2.2, data.first(where: {$0.name == sample2.0 && $0.year == sample2.1})?.total)
     }
 
    /* func testPerformanceExample() throws {
