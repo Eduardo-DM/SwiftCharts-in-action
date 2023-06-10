@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var path = NavigationPath()
+    let store = DataStore.shared
     
     var body: some View {
         NavigationStack(path: $path){

@@ -16,10 +16,10 @@ func loadCSVFile(from fileUrl: URL) -> [Country] {
         countries.reserveCapacity(lines.count)
         
         if lines.count > 1 {
-            let headers = lines[0].components(separatedBy: ";")
+            let headers = lines[0].components(separatedBy: ",")
             
             for lineIndex in 1..<lines.count {
-                let fields = lines[lineIndex].components(separatedBy: ";")
+                let fields = lines[lineIndex].components(separatedBy: ",")
                 
                 if fields.count == headers.count {
                     let country = Country(
