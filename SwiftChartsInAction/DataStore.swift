@@ -22,11 +22,8 @@ final class DataStore{
     
     @MainActor
     private func loadCountries() async{
-        print("--------")
         let url = Bundle.main.url(forResource: "Emissions by country", withExtension: "csv")!
         data = loadCSVFile(from: url)
-        print(data[data.count-1])
-        print(data.count)
     }
     
 }
