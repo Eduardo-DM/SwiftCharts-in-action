@@ -51,22 +51,29 @@ final class SwiftChartsDemoTests: XCTestCase {
         XCTAssertEqual(nRecords, data.count)
         XCTAssertEqual(sample1.2 , data.first(where: {$0.name == sample1.0 && $0.year == sample1.1})?.coal)
         XCTAssertEqual(sample2.2, data.first(where: {$0.name == sample2.0 && $0.year == sample2.1})?.total)
+        XCTAssertEqual(sample2.0, data.first(where: {$0.name == sample2.0 && $0.year == sample2.1})?.name)
     }
 
     @MainActor func testTopFiveEmitters(){
         
-        print(DataStore.shared.data.count)
+        dump(DataStore.shared.data.count)
         
-        let sortedCountries = DataStore.shared.data
+        let sortedCountries = Array(DataStore.shared.data
             .filter({$0.year == 2021})
             .sorted(by: {($0.total ?? 0.0) > ($1.total ?? 0.0)})
             .dropFirst(1)
-            .map({$0.name})
-       
+                                    )
         dump(sortedCountries)
-        let countries = sortedCountries[0...4]
+        var countries: [String] = []
+        for i in 0...4{
+            let countryName = sortedCountries[i].name
+            countries.append(countryName)
+        }
         
+        dump(countries)
+        XCTAssertEqual("China", countries[0])
         print(countries)
+        
  
     }
     
