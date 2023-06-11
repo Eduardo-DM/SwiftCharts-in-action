@@ -22,12 +22,16 @@ struct EvolutionTopFiveEmittersView: View {
                 by: .value("Country", country.name)
             )
         }
+        .chartXScale(domain: 1750...2021)
+        .chartYScale(domain: 0...23000)
+        .padding()
     }
 }
 
 struct EvolutionTopFiveEmittersView_Previews: PreviewProvider {
     static var previews: some View {
         EvolutionTopFiveEmittersView()
+            .environmentObject(DataStore())
     }
 }
 
