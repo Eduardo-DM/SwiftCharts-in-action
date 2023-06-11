@@ -35,6 +35,13 @@ struct EvolutionTopFiveEmittersView: View {
         )
         .chartXScale(domain: startYear...2021)
         .chartYScale(domain: 0...14000)
+        .chartXAxis {
+            AxisMarks() { _ in
+                AxisGridLine()
+                AxisValueLabel(centered: false, collisionResolution: .disabled)
+                    .offset(x: -10.0, y:1.0)
+            }
+        }
         .padding()
     }
 }
