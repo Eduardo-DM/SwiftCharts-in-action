@@ -34,7 +34,7 @@ struct EvolutionTopFiveEmittersView: View {
             )
         )
         .chartXScale(domain: startYear...2021)
-        .chartYScale(domain: 0...23000)
+        .chartYScale(domain: 0...14000)
         .padding()
     }
 }
