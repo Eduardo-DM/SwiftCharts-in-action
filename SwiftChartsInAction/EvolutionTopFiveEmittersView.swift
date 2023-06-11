@@ -17,7 +17,8 @@ struct EvolutionTopFiveEmittersView: View {
         Chart(store.evolutionTopFiveEmitters.filter({$0.year>=startYear})) { country in
             AreaMark(
                 x: .value("Year", country.year),
-                y: .value("Global", country.total ?? 0)
+                y: .value("Global", country.total ?? 0),
+                stacking: .standard
             )
             .foregroundStyle(
                 by: .value("Country", country.name)
