@@ -18,20 +18,21 @@ struct EvolutionTopFiveEmittersView: View {
             AreaMark(
                 x: .value("Year", country.year),
                 y: .value("Global", country.total ?? 0),
-                stacking: .standard
+                stacking: .unstacked
             )
             .foregroundStyle(
                 by: .value("Country", country.name)
             )
         }
         .chartForegroundStyleScale(
-                    range: Gradient (
-                        colors: [
-                            .red,
-                            .yellow.opacity(0.8)
-                        ]
-                    )
-                )
+            range: Gradient (
+                colors: [
+                    .red.opacity(0.8),
+                    .purple.opacity(0.4),
+                    .yellow.opacity(0.2)
+                ]
+            )
+        )
         .chartXScale(domain: startYear...2021)
         .chartYScale(domain: 0...23000)
         .padding()
