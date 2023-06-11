@@ -24,6 +24,14 @@ struct EvolutionTopFiveEmittersView: View {
                 by: .value("Country", country.name)
             )
         }
+        .chartForegroundStyleScale(
+                    range: Gradient (
+                        colors: [
+                            .red,
+                            .yellow.opacity(0.8)
+                        ]
+                    )
+                )
         .chartXScale(domain: startYear...2021)
         .chartYScale(domain: 0...23000)
         .padding()
