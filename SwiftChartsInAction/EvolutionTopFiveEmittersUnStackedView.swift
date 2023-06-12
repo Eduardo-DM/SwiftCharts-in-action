@@ -8,7 +8,7 @@
 import SwiftUI
 import Charts
 
-struct EvolutionTopFiveEmittersView: View {
+struct EvolutionTopFiveEmittersUnstackedView: View {
     
     @EnvironmentObject var store: DataStore
     let startYear = 1990
@@ -46,9 +46,9 @@ struct EvolutionTopFiveEmittersView: View {
     }
 }
 
-struct EvolutionTopFiveEmittersView_Previews: PreviewProvider {
+struct EvolutionTopFiveEmittersUnstackedView_Previews: PreviewProvider {
     static var previews: some View {
-        EvolutionTopFiveEmittersView()
+        EvolutionTopFiveEmittersUnstackedView()
             .environmentObject(DataStore())
     }
 }

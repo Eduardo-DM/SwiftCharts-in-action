@@ -17,7 +17,7 @@ struct ContentView: View {
             List{
                 coverageLink
                 annualSalesLink
-                evolutionTopFiveEmittersLink
+                evolutionTopFiveEmittersUnstackedLink
             }
         }
     }
@@ -42,12 +42,11 @@ struct ContentView: View {
         }
         .navigationTitle("Swift Charts")
     }
-    var evolutionTopFiveEmittersLink: some View{
+    var evolutionTopFiveEmittersUnstackedLink: some View{
         NavigationLink {
-            EvolutionTopFiveEmittersView()
-                
+            EvolutionTopFiveEmittersUnstackedView()
         } label: {
-            Label("Evolution top five emitters", systemImage: "chart.line.uptrend.xyaxis")
+            Label("Top five emitters (unstacked)", systemImage: "chart.line.uptrend.xyaxis")
         }
     }
 }
