@@ -18,6 +18,7 @@ struct ContentView: View {
                 coverageLink
                 annualSalesLink
                 evolutionTopFiveEmittersUnstackedLink
+                evolutionTopFiveEmittersStackedLink
             }
         }
     }
@@ -47,6 +48,13 @@ struct ContentView: View {
             EvolutionTopFiveEmittersUnstackedView()
         } label: {
             Label("Top five emitters (unstacked)", systemImage: "chart.line.uptrend.xyaxis")
+        }
+    }
+    var evolutionTopFiveEmittersStackedLink: some View{
+        NavigationLink {
+            EvolutionTopFiveEmittersStackedView()
+        } label: {
+            Label("Top five emitters (stacked)", systemImage: "chart.line.uptrend.xyaxis")
         }
     }
 }
