@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EA796ED2A3A6DCA00C04F62 /* EvolutionTopFiveEmittersUnstackedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA796EC2A3A6DCA00C04F62 /* EvolutionTopFiveEmittersUnstackedView.swift */; };
 		1EAD62042A3734C700EBC1A9 /* EvolutionTopFiveEmittersStackedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD62032A3734C700EBC1A9 /* EvolutionTopFiveEmittersStackedView.swift */; };
 		1EB580E129A42FEB00FB062E /* SwiftChartsInActionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB580E029A42FEB00FB062E /* SwiftChartsInActionApp.swift */; };
 		1EB580E329A42FEB00FB062E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB580E229A42FEB00FB062E /* ContentView.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EA796EC2A3A6DCA00C04F62 /* EvolutionTopFiveEmittersUnstackedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EvolutionTopFiveEmittersUnstackedView.swift; sourceTree = "<group>"; };
 		1EAD62032A3734C700EBC1A9 /* EvolutionTopFiveEmittersStackedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionTopFiveEmittersStackedView.swift; sourceTree = "<group>"; };
 		1EB580DD29A42FEB00FB062E /* SwiftChartsInAction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftChartsInAction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EB580E029A42FEB00FB062E /* SwiftChartsInActionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftChartsInActionApp.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		1EB580DF29A42FEB00FB062E /* SwiftChartsInAction */ = {
 			isa = PBXGroup;
 			children = (
+				1EA796EC2A3A6DCA00C04F62 /* EvolutionTopFiveEmittersUnstackedView.swift */,
 				1EB580E029A42FEB00FB062E /* SwiftChartsInActionApp.swift */,
 				1EB580E229A42FEB00FB062E /* ContentView.swift */,
 				1EB5810D29A4304D00FB062E /* AnnualReviewView.swift */,
@@ -311,6 +314,7 @@
 				1EB580E129A42FEB00FB062E /* SwiftChartsInActionApp.swift in Sources */,
 				1EAD62042A3734C700EBC1A9 /* EvolutionTopFiveEmittersStackedView.swift in Sources */,
 				1EB5811429A4304D00FB062E /* PlaceOrderView.swift in Sources */,
+				1EA796ED2A3A6DCA00C04F62 /* EvolutionTopFiveEmittersUnstackedView.swift in Sources */,
 				1ED2E3382A33801C0043F3AB /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
