@@ -17,19 +17,24 @@ struct EvolutionTopFiveEmittersUnstackedView: View {
         Chart(store.evolutionTopFiveEmitters.filter({$0.year>=startYear})) { country in
             AreaMark(
                 x: .value("Year", country.year),
-                y: .value("Global", country.total ?? 0),
+                y: .value("Total", country.total ?? 0),
                 stacking: .unstacked
             )
             .foregroundStyle(
                 by: .value("Country", country.name)
             )
+            LineMark(x: .value("Year", country.year), y: .value("Total", country.total ?? 0))
+                .lineStyle(StrokeStyle(lineWidth: 1))
+                .foregroundStyle(.blue)
+                .foregroundStyle(by: .value("Country", country.name))
         }
         .chartForegroundStyleScale(
             range: Gradient (
                 colors: [
                     .red.opacity(0.8),
-                    .purple.opacity(0.4),
-                    .yellow.opacity(0.2)
+                    .yellow.opacity(0.6),
+                    .green.opacity(0.4),
+                    .blue.opacity(0.2)
                 ]
             )
         )
