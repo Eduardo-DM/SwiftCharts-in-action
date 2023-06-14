@@ -11,6 +11,7 @@ import Charts
 struct EvolutionTopFiveEmittersUnstackedView: View {
     
     @EnvironmentObject var store: DataStore
+    
     let startYear = 1990
     
     var body: some View {

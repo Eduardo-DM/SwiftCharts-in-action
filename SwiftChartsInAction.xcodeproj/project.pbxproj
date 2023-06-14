@@ -124,7 +124,6 @@
 		1EB580DF29A42FEB00FB062E /* SwiftChartsInAction */ = {
 			isa = PBXGroup;
 			children = (
-				1EA796EC2A3A6DCA00C04F62 /* EvolutionTopFiveEmittersUnstackedView.swift */,
 				1EB580E029A42FEB00FB062E /* SwiftChartsInActionApp.swift */,
 				1EB580E229A42FEB00FB062E /* ContentView.swift */,
 				1EB5810D29A4304D00FB062E /* AnnualReviewView.swift */,
@@ -137,6 +136,7 @@
 				1EB580E629A42FED00FB062E /* Preview Content */,
 				1ED2E3372A33801C0043F3AB /* Tools.swift */,
 				1ED2E3392A3380930043F3AB /* Country.swift */,
+				1EA796EC2A3A6DCA00C04F62 /* EvolutionTopFiveEmittersUnstackedView.swift */,
 				1EAD62032A3734C700EBC1A9 /* EvolutionTopFiveEmittersStackedView.swift */,
 				1EB74C622A3446DF0082A08C /* DataStore.swift */,
 			);
