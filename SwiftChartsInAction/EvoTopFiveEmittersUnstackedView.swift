@@ -15,6 +15,28 @@ struct EvoTopFiveEmittersUnstackedView: View {
     let startYear = 1990
     
     var body: some View {
+        VStack{
+            headerBlock
+            chartBlock
+                .frame(height: 350)
+                .navigationBarTitle("Top 5 emitters unstacked", displayMode: .inline)
+            Spacer()
+        }
+        .frame(maxHeight: .infinity)
+        .padding()
+    }
+    
+    var headerBlock: some View{
+        VStack(alignment: .leading){
+            Text("Emissions top 5 in last year")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+            Text("\(store.evolutionTopFiveEmitters.filter({$0.year==2021}).map({$0.total ?? 0}).reduce(0, +), format: .number.precision(.fractionLength(0))) million metric tons (MMmt)")
+                .font(.title2.bold())
+                .foregroundColor(.primary)
+        }
+    }
+    var chartBlock: some View{
         Chart(store.evolutionTopFiveEmitters.filter({$0.year>=startYear})) { country in
             AreaMark(
                 x: .value("Year", country.year),
@@ -48,7 +70,6 @@ struct EvoTopFiveEmittersUnstackedView: View {
                     .offset(x: -10.0, y:1.0)
             }
         }
-        .padding()
     }
 }
 
