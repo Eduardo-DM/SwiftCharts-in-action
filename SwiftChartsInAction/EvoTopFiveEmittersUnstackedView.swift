@@ -54,7 +54,7 @@ struct EvoTopFiveEmittersUnstackedView: View {
 
 struct EvoTopFiveEmittersUnstackedView_Previews: PreviewProvider {
     static var previews: some View {
-        EvolutionTopFiveEmittersUnstackedView()
+        EvoTopFiveEmittersUnstackedView()
             .environmentObject(DataStore())
     }
 }

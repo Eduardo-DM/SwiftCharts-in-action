@@ -45,7 +45,7 @@ struct ContentView: View {
     }
     var evolutionTopFiveEmittersUnstackedLink: some View{
         NavigationLink {
-            EvolutionTopFiveEmittersUnstackedView()
+            EvoTopFiveEmittersUnstackedView()
         } label: {
             Label("Top five emitters (unstacked)", systemImage: "chart.line.uptrend.xyaxis")
         }
