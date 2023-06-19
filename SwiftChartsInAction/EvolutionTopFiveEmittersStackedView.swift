@@ -21,6 +21,7 @@ struct EvolutionTopFiveEmittersStackedView: View {
             chartBlock
                 .frame(height: 340)
             Spacer()
+                .navigationBarTitle("Top five emitters (stacked)", displayMode: .inline)
         }
         .padding()
     }

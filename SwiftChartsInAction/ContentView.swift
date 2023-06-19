@@ -21,6 +21,7 @@ struct ContentView: View {
                 evolutionTopFiveEmittersStackedLink
                 evolutionTopThreeEmittersUnstackedLink
             }
+            .navigationTitle("Swift Charts")
         }
     }
     
@@ -42,7 +43,6 @@ struct ContentView: View {
         } label: {
             Label("Sales", systemImage: "dollarsign")
         }
-        .navigationTitle("Swift Charts")
     }
     var evolutionTopFiveEmittersUnstackedLink: some View{
         NavigationLink {
