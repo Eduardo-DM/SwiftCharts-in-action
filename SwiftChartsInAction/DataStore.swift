@@ -28,8 +28,8 @@ final class DataStore: ObservableObject{
     @MainActor
     private func initSettings() async{
         loadCountries()
-        evolutionTopFiveEmitters = setEvolutionEmitters(countries: topFiveEmitters)
-        evolutionTopThreeEmitters = setEvolutionEmitters(countries: topThreeEmitters)
+        evolutionTopFiveEmitters = setEvolutionEmittersPerEmissionsIn2021(countries: topFiveEmitters)
+        evolutionTopThreeEmitters = setEvolutionEmittersPerEmissionsIn2021(countries: topThreeEmitters)
     }
     
     private func loadCountries() {
@@ -38,16 +38,13 @@ final class DataStore: ObservableObject{
     }
     
    
-    private func setEvolutionEmitters(countries: Set<String>) -> [Country]{
+    private func setEvolutionEmittersPerEmissionsIn2021(countries: Set<String>) -> [Country]{
         return data
             .filter({countries.contains($0.name)})
-            .sorted(by: {sortCountryPerNameAndYear(countryA:$0, countryB:$1)})
-     //   idTop5 = UUID()
-       /* print("--------Evolution")
-        dump(self.evolutionTopFiveEmitters)*/
+            .sorted(by: {sortTopFivePerEmissionsIn2021(countryA:$0, countryB:$1)})
     }
     
-    private func sortCountryPerNameAndYear(countryA: Country, countryB: Country)-> Bool{
+    private func sortTopFivePerEmissionsIn2021(countryA: Country, countryB: Country)-> Bool{
         guard let orderA = order[countryA.name], let orderB = order[countryB.name] else{
             return false
         }
@@ -67,5 +64,24 @@ final class DataStore: ObservableObject{
             return false
         }
     }
+    
+    private func sortCountryPerNameAndYear(countryA: Country, countryB: Country)-> Bool{
+        if countryA.name < countryB.name {
+            return true
+        }
+        else if countryA.name == countryB.name {
+            if countryA.year < countryB.year{
+                return true
+            }
+            else{
+                return false
+            }
+        }
+        else{
+            return false
+        }
+    }
+    
+}
     
 }
