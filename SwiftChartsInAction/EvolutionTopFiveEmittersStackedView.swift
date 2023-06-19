@@ -38,6 +38,22 @@ struct EvolutionTopFiveEmittersStackedView: View {
         }
         .chartYScale(domain: 0...22500)
         .chartXScale(domain: startYear...2021)
+        .chartYAxis{
+            AxisMarks(values: .stride(by: 2500)){ _ in
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel()
+            }
+        }
+        .chartXAxis {
+            AxisMarks() { _ in
+                AxisGridLine()
+                AxisTick()
+                AxisValueLabel(collisionResolution: .disabled)
+                    .offset(x: -20.0, y:0)
+            }
+        }
+        .padding(.leading,10)
     }
     
     var headerBlock: some View{
@@ -60,12 +76,4 @@ struct EvolutionTopFiveEmittersStackedView_Previews: PreviewProvider {
             .environmentObject(DataStore())
     }
 }
-/*
-    
-    .chartXAxis {
-        AxisMarks() { _ in
-            AxisGridLine()
-            AxisValueLabel(centered: false, collisionResolution: .disabled)
-                .offset(x: -10.0, y:1.0)
-        }
-    }*/
+
