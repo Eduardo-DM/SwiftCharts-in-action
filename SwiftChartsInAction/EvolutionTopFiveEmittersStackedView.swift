@@ -16,6 +16,16 @@ struct EvolutionTopFiveEmittersStackedView: View {
     let startYear = 1990
     
     var body: some View {
+        VStack(alignment: .leading){
+            headerBlock
+            chartBlock
+                .frame(height: 340)
+            Spacer()
+        }
+        .padding()
+    }
+    
+    var chartBlock: some View{
         Chart(store.evolutionTopFiveEmitters.filter({$0.year>=startYear})) { country in
             AreaMark(
                 x: .value("Year", country.year),
@@ -26,7 +36,21 @@ struct EvolutionTopFiveEmittersStackedView: View {
                 by: .value("Country", country.name)
             )
         }
-        .padding()
+        .chartYScale(domain: 0...22500)
+        .chartXScale(domain: startYear...2021)
+    }
+    
+    var headerBlock: some View{
+        VStack(alignment: .leading){
+            Text("Emissions top 5 in 2021")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .allowsTightening(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+            Text("\(store.evolutionTopFiveEmitters.filter({$0.year==2021}).map({$0.total ?? 0}).reduce(0, +), format: .number.precision(.fractionLength(0))) million metric tons")//(MMmt)
+                .font(.title2.bold())
+                .foregroundColor(.primary)
+                .allowsTightening(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+        }
     }
 }
 
@@ -36,8 +60,8 @@ struct EvolutionTopFiveEmittersStackedView_Previews: PreviewProvider {
             .environmentObject(DataStore())
     }
 }
-/*    .chartXScale(domain: startYear...2021)
-    .chartYScale(domain: 0...23000)
+/*
+    
     .chartXAxis {
         AxisMarks() { _ in
             AxisGridLine()
