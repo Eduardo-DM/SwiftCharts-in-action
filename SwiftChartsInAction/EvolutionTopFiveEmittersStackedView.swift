@@ -47,11 +47,11 @@ struct EvolutionTopFiveEmittersStackedView: View {
             }
         }
         .chartXAxis {
-            AxisMarks() { _ in
+            AxisMarks(preset: .aligned, position: .top) { _ in
                 AxisGridLine()
                 AxisTick()
                 AxisValueLabel(collisionResolution: .disabled)
-                    .offset(x: -20.0, y:0)
+                    //.offset(x: -20.0, y:0)
             }
         }
         .padding(.leading,10)
