@@ -54,7 +54,7 @@ struct EvolutionTopFiveEmittersStackedView: View {
                     //.offset(x: -20.0, y:0)
             }
         }
-        .task {
+        .task(priority: .high){
             quantity = store.evolutionTopFiveEmitters.filter({$0.year==2021}).map({$0.total ?? 0}).reduce(0, +)
         }
         .padding(.leading,10)
