@@ -14,7 +14,7 @@ struct EvolutionTopFiveEmittersStackedView: View {
     
     @EnvironmentObject var store: DataStore
     let startYear = 1990
-    @State var quantity: Double = 0
+    @State private var quantity: Double = 0
     var body: some View {
         VStack(alignment: .leading){
             headerBlock
