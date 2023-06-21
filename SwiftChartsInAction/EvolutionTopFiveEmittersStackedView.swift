@@ -14,7 +14,7 @@ struct EvolutionTopFiveEmittersStackedView: View {
     
     @EnvironmentObject var store: DataStore
     let startYear = 1990
-    
+    @State var quantity: Double = 0
     var body: some View {
         VStack(alignment: .leading){
             headerBlock
@@ -54,6 +54,9 @@ struct EvolutionTopFiveEmittersStackedView: View {
                     //.offset(x: -20.0, y:0)
             }
         }
+        .task {
+            quantity = store.evolutionTopFiveEmitters.filter({$0.year==2021}).map({$0.total ?? 0}).reduce(0, +)
+        }
         .padding(.leading,10)
     }
     
@@ -63,7 +66,7 @@ struct EvolutionTopFiveEmittersStackedView: View {
                 .font(.callout)
                 .foregroundStyle(.secondary)
                 .allowsTightening(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-            Text("\(store.evolutionTopFiveEmitters.filter({$0.year==2021}).map({$0.total ?? 0}).reduce(0, +), format: .number.precision(.fractionLength(0))) million metric tons")//(MMmt)
+            Text("\(quantity, format: .number.precision(.fractionLength(0))) million metric tons")//(MMmt)
                 .font(.title2.bold())
                 .foregroundColor(.primary)
                 .allowsTightening(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
